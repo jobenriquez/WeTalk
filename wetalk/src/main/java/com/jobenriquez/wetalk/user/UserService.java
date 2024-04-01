@@ -72,7 +72,7 @@ public class UserService implements IUserService {
         User user = token.getUser();
         Calendar calendar = Calendar.getInstance();
         if((token.getExpirationTime().getTime() - calendar.getTime().getTime()) <= 0) {
-            tokenRepository.delete(token);
+            //tokenRepository.delete(token);
             return "Expired verification token";
         }
         user.setActive(true);
@@ -82,10 +82,10 @@ public class UserService implements IUserService {
 
     @Override
     public VerificationToken generateNewVerificationToken(String oldToken) {
-        VerificationToken verificationToken= tokenRepository.findByToken(oldToken);
-        var verificationTokenTime = new VerificationToken();
+        VerificationToken verificationToken = tokenRepository.findByToken(oldToken);
+        var tokenExpirationTime = new VerificationToken();
         verificationToken.setToken(UUID.randomUUID().toString());
-        verificationToken.setExpirationTime(verificationTokenTime.getTokenExpirationTime());
+        verificationToken.setExpirationTime(tokenExpirationTime.getTokenExpirationTime());
         return tokenRepository.save(verificationToken);
     }
 }
