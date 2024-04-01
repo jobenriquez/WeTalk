@@ -23,7 +23,7 @@ public class VerificationToken {
     private Long id;
     private String token;
     private Date expirationTime;
-    private static final int EXPIRATION_TIME_ALLOWANCE = 1;
+    private static final int EXPIRATION_TIME_ALLOWANCE = 15;
 
 
     @OneToOne
