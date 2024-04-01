@@ -1,0 +1,28 @@
+server:
+    port: 8085
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/wetalk
+    username: postgres
+    password: Qwerty!!
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  logging:
+    level:
+      org:
+        springframework:
+          security: DEBUG
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: bojenriquez@gmail.com
+    password: fbbqeksfjbumqdzt
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
